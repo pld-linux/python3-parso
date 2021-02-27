@@ -9,7 +9,7 @@ Summary:	Python parser
 Summary(pl.UTF-8):	Parser Pythona
 Name:		python-parso
 Version:	0.7.0
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/parso/
