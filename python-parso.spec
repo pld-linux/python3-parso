@@ -8,13 +8,14 @@
 Summary:	Python parser
 Summary(pl.UTF-8):	Parser Pythona
 Name:		python-parso
-Version:	0.7.0
-Release:	2
+# keep 0.7.x here for python2 support
+Version:	0.7.1
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/parso/
 Source0:	https://files.pythonhosted.org/packages/source/p/parso/parso-%{version}.tar.gz
-# Source0-md5:	d3a892fb4d9a0ffed838b0a3416145bf
+# Source0-md5:	eac40cda515ee71e3bb008c404ca3ac1
 URL:		https://pypi.org/project/parso/
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
@@ -35,7 +36,7 @@ BuildRequires:	python3-pytest >= 3.0.7
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with doc}
-BuildRequires:	sphinx-pdg
+BuildRequires:	sphinx-pdg-2
 %endif
 Requires:	python-modules >= 1:2.7
 BuildArch:	noarch
@@ -86,6 +87,7 @@ Dokumentacja API modułu Pythona parso.
 %py_build
 
 %if %{with tests}
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 %{__python} -m pytest test
 %endif
 %endif
@@ -94,12 +96,14 @@ Dokumentacja API modułu Pythona parso.
 %py3_build
 
 %if %{with tests}
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 %{__python3} -m pytest test
 %endif
 %endif
 
 %if %{with doc}
-%{__make} -C docs html
+%{__make} -C docs html \
+	SPHINXBUILD=sphinx-build-2
 %endif
 
 %install
