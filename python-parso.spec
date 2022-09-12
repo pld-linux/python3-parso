@@ -96,8 +96,9 @@ PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 %py3_build
 
 %if %{with tests}
+# test_python_errors are not ready for python 3.10
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
-%{__python3} -m pytest test
+%{__python3} -m pytest test -k 'not test_python_errors'
 %endif
 %endif
 
