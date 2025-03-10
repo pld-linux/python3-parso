@@ -10,7 +10,7 @@ Summary(pl.UTF-8):	Parser Pythona
 Name:		python-parso
 # keep 0.7.x here for python2 support
 Version:	0.7.1
-Release:	4
+Release:	5
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/parso/
