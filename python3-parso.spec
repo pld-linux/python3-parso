@@ -6,18 +6,17 @@
 Summary:	Python parser
 Summary(pl.UTF-8):	Parser Pythona
 Name:		python3-parso
-Version:	0.8.4
+Version:	0.8.7
 Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/parso/
 Source0:	https://files.pythonhosted.org/packages/source/p/parso/parso-%{version}.tar.gz
-# Source0-md5:	f83b2e4164f6589ccae39b16c30ed5de
+# Source0-md5:	ffbae6a466724074ccac6a2823cd1afe
 URL:		https://pypi.org/project/parso/
 BuildRequires:	python3-modules >= 1:3.6
 BuildRequires:	python3-setuptools
 %if %{with tests}
-BuildRequires:	python3-docopt
 BuildRequires:	python3-pytest >= 3.0.7
 %endif
 BuildRequires:	rpm-pythonprov
@@ -58,7 +57,7 @@ Dokumentacja API modułu Pythona parso.
 
 %if %{with tests}
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
-%{__python3} -m pytest test -k 'not test_python_errors'
+%{__python3} -m pytest test
 %endif
 
 %if %{with doc}
